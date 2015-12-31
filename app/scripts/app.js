@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var myapp = angular
   .module('callcenterApp', [
     'ngAnimate',
     'ngAria',
@@ -19,11 +19,23 @@ angular
     'ngSanitize',
     'ngMaterial',
     'ngMessages'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+
+
+function watchLanguageChange($scope,propertiesfactory){
+  $scope.$watch(function () { return propertiesfactory.getProperties("no"); },
+    function (value) {
+      $scope.properties = value;
+      console.log("$scope.properties in login con inside:"+$scope.properties);
+    }
+  );
+}
+
+
+  myapp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/home.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })

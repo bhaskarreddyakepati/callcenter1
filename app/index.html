@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en"  ng-app="callcenterApp">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="callcenterApp">
+  <body layout="column" ng-controller="HomeController">
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -39,6 +39,14 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/factories/propertiesfactory.js"></script>
+    <script src="scripts/factories/commonfactory.js"></script>
+    <script src="scripts/factories/httpservicesfactory.js"></script>
+    <script src="scripts/controllers/homecontroller.js"></script>
+    <script src="scripts/controllers/logincontroller.js"></script>
+    <script src="scripts/controllers/restaurantscontroller.js"></script>
+    <script src="scripts/controllers/customerscontroller.js"></script>
+    <script src="scripts/controllers/customeraddresscontroller.js"></script>
         <!-- endbuild -->
 
 
@@ -46,7 +54,7 @@
       <md-button class="menu" hide-gt-sm ng-click="toggleList()" aria-label="Show User List">
         <md-icon md-svg-src="assets/menu.svg"></md-icon>
       </md-button>
-      <h1>{{properties.menu}}</h1>
+      <h1>Tillster API Test</h1>
       <div layout="column" flex-sm="100" flex="33" layout-align="center center">
         <md-input-container>
           <md-select name="languagecode" ng-model="language" placeholder="Select language" ng-change="langChange(language)">
@@ -68,13 +76,13 @@
         <md-list>
           <md-list-item class="md-1-line sidenavapp">
             <div class="md-list-item-text" layout="column">
-              <a href="#/loginAgent">{{properties.loginagent}}</a>
+              <a href="#/loginAgent">Login Agent</a>
             </div>
           </md-list-item>
           <md-divider></md-divider>
           <md-list-item class="md-1-line sidenavapp" >
             <div class="md-list-item-text" layout="column">
-              <a href="#/restaurantDNIS">{{properties.getrestaurantsbydns}}</a>
+              <a href="#/restaurantDNIS">Get Restaurants By DNIS</a>
             </div>
           </md-list-item>
           <md-divider></md-divider>
