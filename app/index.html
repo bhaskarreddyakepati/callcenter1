@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="callcenterApp">
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <!-- endbuild -->
+
+
+    <md-toolbar layout="row">
+      <md-button class="menu" hide-gt-sm ng-click="toggleList()" aria-label="Show User List">
+        <md-icon md-svg-src="assets/menu.svg"></md-icon>
+      </md-button>
+      <h1>{{properties.menu}}</h1>
+      <div layout="column" flex-sm="100" flex="33" layout-align="center center">
+        <md-input-container>
+          <md-select name="languagecode" ng-model="language" placeholder="Select language" ng-change="langChange(language)">
+            <md-option ng-repeat="language in languages" value="{{language.Code}}">
+              {{language.Name}}
+            </md-option>
+          </md-select>
+          <div ng-messages="customeraddresssForm.countryid.$error" ng-show="customeraddresssForm.countryid.$dirty">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+      </div>
+    </md-toolbar>
+
+    <!-- Container #2 -->
+    <div flex layout="row">
+
+      <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+        <md-list>
+          <md-list-item class="md-1-line sidenavapp">
+            <div class="md-list-item-text" layout="column">
+              <a href="#/loginAgent">{{properties.loginagent}}</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/restaurantDNIS">{{properties.getrestaurantsbydns}}</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/customerANI">Get Customers By ANI</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/createcustomer">Create Customer</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/updatecustomer">Update Customer</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/deletecustomer">Delete Customer</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/createcustomeraddress">Create Customer Address</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/updatecustomeraddress">Update Customer Address</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item class="md-1-line sidenavapp" >
+            <div class="md-list-item-text" layout="column">
+              <a href="#/deletecustomeraddress">Delete Customer Address</a>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+
+        </md-list>
+      </md-sidenav>
+
+      <md-content flex id="content">
+        <div ng-view></div>
+      </md-content>
+
+    </div>
+</body>
+</html>
